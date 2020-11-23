@@ -1,6 +1,6 @@
 ﻿namespace TeamZero.Core.Logging
 {
-    public class LogFilter : ILogFilter
+    public sealed class LogFilter : ILogFilter
     {
         private readonly bool _logInfo;
         private readonly bool _logWarning;
