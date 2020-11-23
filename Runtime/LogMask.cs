@@ -14,9 +14,9 @@ namespace TeamZero.Core.Logging
     
     public static class LogMaskExtension
     {
-        public static LogMask Add(this LogMask target, LogMask value) => target | value;
+        public static LogMask Union(this LogMask target, LogMask value) => target | value;
         
-        public static LogMask Remove(this LogMask target, LogMask value) => target & ~value;
+        public static LogMask Distinct(this LogMask target, LogMask value) => target & ~value;
         
         public static bool Contains(this LogMask target, LogMask value) => (target & value) != 0;
     }

@@ -7,9 +7,9 @@
         public static LogFilter Create(bool info, bool warning, bool error)
         {
             LogMask mask = LogMask.Empty;
-            if (info) mask.Add(LogMask.Info);
-            if (warning) mask.Add(LogMask.Warning);
-            if (error) mask.Add(LogMask.Error);
+            if (info) mask = mask.Union(LogMask.Info);
+            if (warning) mask = mask.Union(LogMask.Warning);
+            if (error) mask = mask.Union(LogMask.Error);
 
             return new LogFilter(mask);
         }
