@@ -115,45 +115,5 @@ namespace TeamZero.Core.Logging
 			if(ErrorEnabled()) 
 				_target.Error(e);
 		}
-		
-		
-		#region Default
-		
-		private static Log _main;
-		public static Log Main
-		{
-			get
-			{
-				if (_main == null)
-				{
-					ILogTarget listener = DefaultTarget();
-					ILogFilter filter = DefaultFilter();
-					_main = new Log(listener, filter);
-				}
-
-				return _main;
-			}
-			set
-			{
-				if(_main != null)
-					throw new Exception("Default value already used");
-				
-				_main = value;
-			}
-		}
-		
-		public static ILogTarget DefaultTarget()
-		{
-#if UNITY_5_3_OR_NEWER //if Unity Engine
-			return new UnityConsoleTarget();
-#else
-			throw new NotImplementedException();
-#endif
-		}
-
-		public static ILogFilter DefaultFilter(bool info = true, bool warning = true, bool error = true) => 
-			new LogFilter(info, warning, error);
-		
-		#endregion
 	}
 }
