@@ -2,21 +2,27 @@
 {
     public sealed class LogFilter : ILogFilter
     {
-        private readonly bool _logInfo;
-        private readonly bool _logWarning;
-        private readonly bool _logError;
+        private readonly LogMask _mask;
 
-        public LogFilter(bool info, bool warning, bool error)
+        public static LogFilter Create(bool info, bool warning, bool error)
         {
-            _logInfo = info;
-            _logWarning = warning;
-            _logError = error;
+            LogMask mask = LogMask.Empty;
+            if (info) mask.Add(LogMask.Info);
+            if (warning) mask.Add(LogMask.Warning);
+            if (error) mask.Add(LogMask.Error);
+
+            return new LogFilter(mask);
         }
 
-        public bool InfoEnabled() => _logInfo;
+        public LogFilter(LogMask mask)
+        {
+            _mask = mask;
+        }
 
-        public bool WarningEnabled() => _logWarning;
+        public bool InfoEnabled() => _mask.Contains(LogMask.Info);
 
-        public bool ErrorEnabled() => _logError;
+        public bool WarningEnabled() => _mask.Contains(LogMask.Warning);
+
+        public bool ErrorEnabled() => _mask.Contains(LogMask.Error);
     }
 }
