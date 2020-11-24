@@ -10,6 +10,6 @@ namespace TeamZero.Core.Logging
 
         void Error(object o);
         
-        void Error(Exception e);
+        void Exception(Exception e);
     }
 }

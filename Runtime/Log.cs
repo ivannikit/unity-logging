@@ -17,8 +17,7 @@ namespace TeamZero.Core.Logging
          	_target = target ?? throw new ArgumentNullException(nameof(target));
          	_filter = filter ?? throw new ArgumentNullException(nameof(filter));
         }
-
-
+		
 		public bool InfoEnabled()
 		{
 #if DISABLE_INFO_LOG
@@ -46,6 +45,14 @@ namespace TeamZero.Core.Logging
 #endif
 		}
 		
+		public bool ExceptionEnabled() 
+		{
+#if DISABLE_EXCEPTION_LOG
+			return false;
+#else
+			return _filter.ExceptionEnabled();
+#endif
+		}
 		
 #if DISABLE_INFO_LOG
 		[Conditional("__NEVER_DEFINED__")]
@@ -56,7 +63,6 @@ namespace TeamZero.Core.Logging
 				_target.Info(o.ToString());
 		}
 		
-		
 #if DISABLE_WARNING_LOG
 		[Conditional("__NEVER_DEFINED__")]
 #endif
@@ -65,7 +71,6 @@ namespace TeamZero.Core.Logging
 			if(WarningEnabled()) 
 				_target.Warning(o.ToString());
 		}
- 
 		
 #if DISABLE_ERROR_LOG
 		[Conditional("__NEVER_DEFINED__")]
@@ -75,15 +80,14 @@ namespace TeamZero.Core.Logging
 			if(ErrorEnabled()) 
 				_target.Error(o.ToString());
 		}
-
 		
-#if DISABLE_ERROR_LOG
+#if DISABLE_EXCEPTION_LOG
 		[Conditional("__NEVER_DEFINED__")]
 #endif
-		public void Error(Exception e)
+		public void Exception(Exception e)
 		{
-			if(ErrorEnabled()) 
-				_target.Error(e);
+			if(ExceptionEnabled()) 
+				_target.Exception(e);
 		}
 	}
 }

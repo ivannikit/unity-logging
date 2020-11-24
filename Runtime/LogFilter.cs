@@ -24,5 +24,7 @@
         public bool WarningEnabled() => _mask.Contains(LogMask.Warning);
 
         public bool ErrorEnabled() => _mask.Contains(LogMask.Error);
+        
+        public bool ExceptionEnabled() => _mask.Contains(LogMask.Error);
     }
 }
