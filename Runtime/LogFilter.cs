@@ -4,7 +4,7 @@
     {
         private readonly LogMask _mask;
 
-        public static LogFilter Create(bool info, bool warning, bool error)
+        public static LogFilter Create(bool info, bool warning, bool error, bool exception)
         {
             LogMask mask = LogMask.Empty;
             if (info) mask = mask.Union(LogMask.Info);
@@ -25,6 +25,6 @@
 
         public bool ErrorEnabled() => _mask.Contains(LogMask.Error);
         
-        public bool ExceptionEnabled() => _mask.Contains(LogMask.Error);
+        public bool ExceptionEnabled() => _mask.Contains(LogMask.Exception);
     }
 }

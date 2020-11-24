@@ -41,7 +41,7 @@ namespace TeamZero.Core.Logging
 #endif
         }
 
-        public static ILogFilter DefaultFilter(bool info = true, bool warning = true, bool error = true) =>
-            LogFilter.Create(info, warning, error);
+        public static ILogFilter DefaultFilter(bool info = true, bool warning = true, bool error = true, bool exception = true) =>
+            LogFilter.Create(info, warning, error, exception);
     }
 }
