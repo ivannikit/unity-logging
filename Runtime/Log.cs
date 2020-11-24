@@ -60,7 +60,7 @@ namespace TeamZero.Core.Logging
 		public void Info(object o)
 		{
 			if(InfoEnabled()) 
-				_target.Info(o.ToString());
+				_target.Info(o);
 		}
 		
 #if DISABLE_WARNING_LOG
@@ -69,7 +69,7 @@ namespace TeamZero.Core.Logging
 		public void Warning(object o)
 		{
 			if(WarningEnabled()) 
-				_target.Warning(o.ToString());
+				_target.Warning(o);
 		}
 		
 #if DISABLE_ERROR_LOG
@@ -78,7 +78,7 @@ namespace TeamZero.Core.Logging
 		public void Error(object o)
 		{
 			if(ErrorEnabled()) 
-				_target.Error(o.ToString());
+				_target.Error(o);
 		}
 		
 #if DISABLE_EXCEPTION_LOG
