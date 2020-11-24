@@ -10,10 +10,7 @@ namespace TeamZero.Core.Logging
 
 		public void Error(object o) => UnityEngine.Debug.LogError(o);
 
-		public void Exception(Exception e)
-		{
-			throw e;
-		}
+		public void Exception(Exception e) => UnityEngine.Debug.LogException(e);
 	}
 }
 #endif
