@@ -45,16 +45,6 @@ namespace TeamZero.Core.Logging
 			return _filter.ErrorEnabled();
 #endif
 		}
-
-		
-#if DISABLE_INFO_LOG
-		[Conditional("__NEVER_DEFINED__")]
-#endif
-		public void Info(string message)
-		{
-			if(InfoEnabled()) 
-				_target.Info(message);
-		}
 		
 		
 #if DISABLE_INFO_LOG
@@ -70,32 +60,12 @@ namespace TeamZero.Core.Logging
 #if DISABLE_WARNING_LOG
 		[Conditional("__NEVER_DEFINED__")]
 #endif
-		public void Warning(string message)
-		{
-			if(WarningEnabled()) 
-				_target.Warning(message);
-		}
-		
-		
-#if DISABLE_WARNING_LOG
-		[Conditional("__NEVER_DEFINED__")]
-#endif
 		public void Warning(object o)
 		{
 			if(WarningEnabled()) 
 				_target.Warning(o.ToString());
 		}
  
-		
-#if DISABLE_ERROR_LOG
-		[Conditional("__NEVER_DEFINED__")]
-#endif
-		public void Error(string message)
-		{
-			if(ErrorEnabled()) 
-				_target.Error(message);
-		}
-		
 		
 #if DISABLE_ERROR_LOG
 		[Conditional("__NEVER_DEFINED__")]

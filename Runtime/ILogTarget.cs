@@ -4,11 +4,11 @@ namespace TeamZero.Core.Logging
 {
     public interface ILogTarget
     {
-        void Info(string message);
+        void Info(object o);
 
-        void Warning(string message);
+        void Warning(object o);
 
-        void Error(string message);
+        void Error(object o);
         
         void Error(Exception e);
     }
