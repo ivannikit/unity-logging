@@ -44,20 +44,20 @@ namespace TeamZero.Core.Logging
             LogFilter.Create(info, warning, error, exception);
 
         
-        public static bool InfoEnabled() => _target.InfoEnabled();
+        public static bool InfoEnabled() => Target.InfoEnabled();
 
-        public static bool WarningEnabled() => _target.WarningEnabled();
+        public static bool WarningEnabled() => Target.WarningEnabled();
 
-        public static bool ErrorEnabled() => _target.ErrorEnabled();
+        public static bool ErrorEnabled() => Target.ErrorEnabled();
 		
-        public static bool ExceptionEnabled() => _target.ExceptionEnabled();
+        public static bool ExceptionEnabled() => Target.ExceptionEnabled();
 		
-        public static void Info(object o) => _target.Info(o);
+        public static void Info(object o) => Target.Info(o);
 		
-        public static void Warning(object o) => _target.Warning(o);
+        public static void Warning(object o) => Target.Warning(o);
 		
-        public static void Error(object o) => _target.Error(o);
+        public static void Error(object o) => Target.Error(o);
 		
-        public static void Exception(Exception e) => _target.Exception(e);
+        public static void Exception(Exception e) => Target.Exception(e);
     }
 }
