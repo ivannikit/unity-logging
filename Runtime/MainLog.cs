@@ -52,12 +52,24 @@ namespace TeamZero.Core.Logging
 		
         public static bool ExceptionEnabled() => Target.ExceptionEnabled();
 		
+#if DISABLE_INFO_LOG
+		[Conditional("__NEVER_DEFINED__")]
+#endif
         public static void Info(object o) => Target.Info(o);
 		
+#if DISABLE_WARNING_LOG
+		[Conditional("__NEVER_DEFINED__")]
+#endif
         public static void Warning(object o) => Target.Warning(o);
 		
+#if DISABLE_ERROR_LOG
+		[Conditional("__NEVER_DEFINED__")]
+#endif
         public static void Error(object o) => Target.Error(o);
 		
+#if DISABLE_EXCEPTION_LOG
+		[Conditional("__NEVER_DEFINED__")]
+#endif
         public static void Exception(Exception e) => Target.Exception(e);
     }
 }
