@@ -55,7 +55,7 @@ namespace TeamZero.Core.Logging
 		}
 		
 #if DISABLE_INFO_LOG
-		[Conditional("__NEVER_DEFINED__")]
+		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
 #endif
 		public void Info(object o)
 		{
@@ -64,7 +64,7 @@ namespace TeamZero.Core.Logging
 		}
 		
 #if DISABLE_WARNING_LOG
-		[Conditional("__NEVER_DEFINED__")]
+		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
 #endif
 		public void Warning(object o)
 		{
@@ -73,7 +73,7 @@ namespace TeamZero.Core.Logging
 		}
 		
 #if DISABLE_ERROR_LOG
-		[Conditional("__NEVER_DEFINED__")]
+		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
 #endif
 		public void Error(object o)
 		{
@@ -82,7 +82,7 @@ namespace TeamZero.Core.Logging
 		}
 		
 #if DISABLE_EXCEPTION_LOG
-		[Conditional("__NEVER_DEFINED__")]
+		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
 #endif
 		public void Exception(Exception e)
 		{
