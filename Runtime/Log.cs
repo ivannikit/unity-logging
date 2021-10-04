@@ -89,5 +89,12 @@ namespace TeamZero.Core.Logging
 			if(ExceptionEnabled()) 
 				_target.Exception(e);
 		}
+
+		
+		public static Log Default() => Factory.Default();
+		
+		public static ILogTarget DefaultTarget() => Factory.DefaultTarget();
+		
+		public static ILogFilter DefaultFilter() => Factory.DefaultFilter();
 	}
 }
