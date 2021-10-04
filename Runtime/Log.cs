@@ -44,16 +44,7 @@ namespace TeamZero.Core.Logging
 			return _filter.ErrorEnabled();
 #endif
 		}
-		
-		public bool ExceptionEnabled() 
-		{
-#if DISABLE_EXCEPTION_LOG
-			return false;
-#else
-			return _filter.ExceptionEnabled();
-#endif
-		}
-		
+
 #if DISABLE_INFO_LOG
 		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
 #endif
@@ -80,17 +71,8 @@ namespace TeamZero.Core.Logging
 			if(ErrorEnabled()) 
 				_target.Error(o);
 		}
-		
-#if DISABLE_EXCEPTION_LOG
-		[System.Diagnostics.Conditional("__NEVER_DEFINED__")]
-#endif
-		public void Exception(Exception e)
-		{
-			if(ExceptionEnabled()) 
-				_target.Exception(e);
-		}
 
-		
+
 		public static Log Default() => Factory.Default();
 		
 		public static ILogTarget DefaultTarget() => Factory.DefaultTarget();

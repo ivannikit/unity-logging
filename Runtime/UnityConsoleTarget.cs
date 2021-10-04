@@ -9,8 +9,6 @@ namespace TeamZero.Core.Logging
 		public void Warning(object o) => UnityEngine.Debug.LogWarning(o);
 
 		public void Error(object o) => UnityEngine.Debug.LogError(o);
-
-		public void Exception(Exception e) => UnityEngine.Debug.LogException(e);
 	}
 }
 #endif
