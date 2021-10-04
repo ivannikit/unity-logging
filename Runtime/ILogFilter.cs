@@ -7,7 +7,5 @@
         bool WarningEnabled();
 
         bool ErrorEnabled();
-        
-        bool ExceptionEnabled();
     }
 }

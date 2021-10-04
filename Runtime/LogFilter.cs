@@ -3,19 +3,13 @@
     public sealed class LogFilter : ILogFilter
     {
         private readonly LogMask _mask;
+        
+        public static LogFilter FromMask(LogMask mask) => new LogFilter(mask);
+        public static LogFilter ErrorLevel() => new LogFilter(LogMask.Error | LogMask.Exception);
+        public static LogFilter WarningLevel() => new LogFilter(LogMask.Warning | LogMask.Error | LogMask.Exception);
+        public static LogFilter All() => new LogFilter(LogMask.All);
 
-        public static LogFilter Create(bool info = true, bool warning = true, bool error = true, bool exception = true)
-        {
-            LogMask mask = LogMask.Empty;
-            if (info) mask = mask.Union(LogMask.Info);
-            if (warning) mask = mask.Union(LogMask.Warning);
-            if (error) mask = mask.Union(LogMask.Error);
-            if (exception) mask = mask.Union(LogMask.Exception);
-
-            return new LogFilter(mask);
-        }
-
-        public LogFilter(LogMask mask)
+        private LogFilter(LogMask mask)
         {
             _mask = mask;
         }
@@ -25,7 +19,5 @@
         public bool WarningEnabled() => _mask.Contains(LogMask.Warning);
 
         public bool ErrorEnabled() => _mask.Contains(LogMask.Error);
-        
-        public bool ExceptionEnabled() => _mask.Contains(LogMask.Exception);
     }
 }
