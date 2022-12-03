@@ -1,6 +1,6 @@
 {
   "name": "com.team-zero.unity-logging",
-  "displayName": "Team Zero Logging",
+  "displayName": "TZ Logging",
   "version": "0.1.2",
   "unity": "2018.1",
   "description": "Simple logging tool for Unity3d (or c# only projects)",
