@@ -1,6 +1,6 @@
-﻿using System;
+﻿#nullable enable
 
-namespace TeamZero.Core.Logging
+namespace TeamZero.Logging
 {
     public interface ILogTarget
     {

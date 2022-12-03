@@ -1,4 +1,6 @@
-﻿namespace TeamZero.Core.Logging
+﻿#nullable enable
+
+namespace TeamZero.Logging
 {
     public interface ILogFilter
     {

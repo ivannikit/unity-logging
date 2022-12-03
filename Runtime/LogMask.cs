@@ -1,6 +1,8 @@
-﻿using System;
+﻿#nullable enable
 
-namespace TeamZero.Core.Logging
+using System;
+
+namespace TeamZero.Logging
 {
     [Flags]
     public enum LogMask
