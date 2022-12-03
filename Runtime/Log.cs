@@ -1,21 +1,20 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿#nullable enable
 
 #if DISABLE_INFO_LOG || DISABLE_WARNING_LOG || DISABLE_ERROR_LOG
 using System.Diagnostics;
 #endif
 
-namespace TeamZero.Core.Logging
+namespace TeamZero.Logging
 {
 	public sealed class Log : ILogFilter
 	{
 		private readonly ILogTarget _target;
 		private readonly ILogFilter _filter;
 
-		public Log([NotNull] ILogTarget target, [NotNull] ILogFilter filter)
+		public Log(ILogTarget target, ILogFilter filter)
         {
-         	_target = target ?? throw new ArgumentNullException(nameof(target));
-         	_filter = filter ?? throw new ArgumentNullException(nameof(filter));
+         	_target = target;
+         	_filter = filter;
         }
 		
 		public bool InfoEnabled()
