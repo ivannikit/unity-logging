@@ -1,13 +1,15 @@
-﻿namespace TeamZero.Core.Logging
+﻿#nullable enable
+
+namespace TeamZero.Core.Logging
 {
     public sealed class LogFilter : ILogFilter
     {
         private readonly LogMask _mask;
         
-        public static LogFilter FromMask(LogMask mask) => new LogFilter(mask);
-        public static LogFilter ErrorLevel() => new LogFilter(LogMask.Error | LogMask.Exception);
-        public static LogFilter WarningLevel() => new LogFilter(LogMask.Warning | LogMask.Error | LogMask.Exception);
-        public static LogFilter All() => new LogFilter(LogMask.All);
+        public static LogFilter Create(LogMask mask) => new(mask);
+        public static LogFilter ErrorLevel() => new(LogMask.Error);
+        public static LogFilter WarningLevel() => new(LogMask.Warning | LogMask.Error);
+        public static LogFilter All() => new(LogMask.All);
 
         private LogFilter(LogMask mask)
         {
