@@ -16,4 +16,12 @@ Log log = new Log(target, filter);
 log.Info("info message");
 log.Warning("warning message");
 log.Error("error message");
+...
+
+if(log.InfoEnabled())
+{
+    StringBuilder message = new StringBuilder();
+    ...
+    log.Info(message);
+}
 ```

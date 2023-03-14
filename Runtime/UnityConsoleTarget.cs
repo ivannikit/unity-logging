@@ -1,5 +1,6 @@
-﻿#if UNITY_5_3_OR_NEWER
-using System;
+﻿#nullable enable
+
+#if UNITY_5_3_OR_NEWER
 namespace TeamZero.Core.Logging
 {
 	public sealed class UnityConsoleTarget : ILogTarget 

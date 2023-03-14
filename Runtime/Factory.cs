@@ -2,7 +2,7 @@
 {
     internal static class Factory
     {
-        internal static Log Default() => new Log(DefaultTarget(), DefaultFilter());
+        internal static Log Default() => new(DefaultTarget(), DefaultFilter());
         
 	    internal static ILogTarget DefaultTarget()
         {

@@ -9,8 +9,7 @@ namespace TeamZero.Core.Logging
         All = ~Empty,
         Info = 1 << 0,
         Warning = 1 << 1,
-        Error = 1 << 2,
-        Exception = 1 << 3
+        Error = 1 << 2
     }
     
     public static class LogMaskExtension
